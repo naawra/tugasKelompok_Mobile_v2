@@ -18,7 +18,6 @@ class LoginView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // ── Top hero section with gradient ──────────────────
             Container(
               width: double.infinity,
               height: size.height * 0.42,
@@ -31,31 +30,6 @@ class LoginView extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                  // Decorative circles
-                  Positioned(
-                    top: -30,
-                    right: -30,
-                    child: Container(
-                      width: 140,
-                      height: 140,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColors.blue.withOpacity(0.15),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 20,
-                    left: -20,
-                    child: Container(
-                      width: 90,
-                      height: 90,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColors.sand.withOpacity(0.12),
-                      ),
-                    ),
-                  ),
                   // Photo placeholder + greeting
                   Center(
                     child: Column(
@@ -78,30 +52,7 @@ class LoginView extends StatelessWidget {
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
-                                // Swap this with Image.asset(...) when ready
                                 Image.asset('assets/images/profile.jpeg'),
-                                // Container(
-                                //   color: AppColors.charcoal.withOpacity(0.35),
-                                // ),
-                                // Column(
-                                //   mainAxisAlignment: MainAxisAlignment.center,
-                                //   children: [
-                                //     Icon(
-                                //       Icons.add_a_photo_outlined,
-                                //       size: 32,
-                                //       color: AppColors.sand.withOpacity(0.7),
-                                //     ),
-                                //     const SizedBox(height: 6),
-                                //     Text(
-                                //       'Foto Anda',
-                                //       style: TextStyle(
-                                //         fontSize: 11,
-                                //         color: AppColors.sand.withOpacity(0.7),
-                                //         letterSpacing: 0.3,
-                                //       ),
-                                //     ),
-                                //   ],
-                                // ),
                               ],
                             ),
                           ),

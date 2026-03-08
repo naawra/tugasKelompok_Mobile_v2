@@ -83,33 +83,9 @@ class HomeView extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 decoration: const BoxDecoration(color: Colors.blueGrey),
-                child: Stack(
+                child: const Stack(
                   children: [
-                    Positioned(
-                      top: -20,
-                      right: -20,
-                      child: Container(
-                        width: 110,
-                        height: 110,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.blue.withOpacity(0.12),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      left: -10,
-                      child: Container(
-                        width: 70,
-                        height: 70,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.sand.withOpacity(0.1),
-                        ),
-                      ),
-                    ),
-                    const SafeArea(
+                    SafeArea(
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(24, 20, 24, 0),
                         child: Column(
@@ -141,8 +117,6 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              // title: const Text('Menu Utama'),
-              // titlePadding: const EdgeInsets.only(left: 20, bottom: 14),
             ),
             actions: [
               IconButton(
