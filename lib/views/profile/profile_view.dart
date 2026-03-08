@@ -6,21 +6,17 @@ import '../../app/theme/app_widgets.dart';
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
-  // ============================================================
-  // ✏️  EDIT DATA KELOMPOK DI SINI
-  // ============================================================
-  static const String namaKelompok  = 'Kelompok X';
+  static const String namaKelompok  = 'Kelompok AAD3A';
   static const String mataKuliah    = 'Pemrograman Mobile';
-  static const String semester      = 'Semester 4';
-  static const String tahunAjaran   = '2024 / 2025';
+  static const String semester      = 'Semester 6';
+  static const String tahunAjaran   = '2025 / 2026';
 
   static final List<GroupMember> members = [
-    GroupMember(nama: 'Nama Anggota 1', nim: '123456001'),
-    GroupMember(nama: 'Nama Anggota 2', nim: '123456002'),
-    GroupMember(nama: 'Nama Anggota 3', nim: '123456003'),
-    GroupMember(nama: 'Nama Anggota 4', nim: '123456004'),
+    GroupMember(nama: 'Khatama Putra', nim: '123230053'),
+    GroupMember(nama: 'Bintoro', nim: '123230059'),
+    GroupMember(nama: 'Naurah Rifdah Nur Ramadhani', nim: '123230068'),
+    GroupMember(nama: 'Muhammad Luqmaan', nim: '123230070'),
   ];
-  // ============================================================
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +36,7 @@ class ProfileView extends StatelessWidget {
             ),
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                decoration: const BoxDecoration(gradient: AppColors.heroGradient),
+                decoration: const BoxDecoration(color: AppColors.divider),
                 child: Stack(
                   children: [
                     // Deco circles
@@ -52,7 +48,7 @@ class ProfileView extends StatelessWidget {
                         height: 120,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.sand.withOpacity(0.1),
+                          color: AppColors.navy.withOpacity(0.1),
                         ),
                       ),
                     ),
@@ -134,8 +130,6 @@ class ProfileView extends StatelessWidget {
                   ],
                 ),
               ),
-              title: const Text('Profile Kelompok'),
-              titlePadding: const EdgeInsets.only(left: 56, bottom: 14),
             ),
           ),
 
@@ -195,16 +189,16 @@ class _MemberTile extends StatelessWidget {
   const _MemberTile({required this.number, required this.member});
 
   // Cycle through gradient pairs per member
-  static const _gradients = [
-    [AppColors.navy, AppColors.charcoal],
-    [AppColors.deepBlue, AppColors.blue],
-    [AppColors.blue, AppColors.slate],
-    [AppColors.charcoal, AppColors.navy],
-  ];
+  // static const _gradients = [
+  //   [AppColors.navy, AppColors.charcoal],
+  //   [AppColors.deepBlue, AppColors.blue],
+  //   [AppColors.blue, AppColors.slate],
+  //   [AppColors.charcoal, AppColors.navy],
+  // ];
 
   @override
   Widget build(BuildContext context) {
-    final grad = _gradients[(number - 1) % _gradients.length];
+    // final grad = _gradients[(number - 1) % _gradients.length];
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
@@ -222,11 +216,7 @@ class _MemberTile extends StatelessWidget {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: grad.cast<Color>(),
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: AppColors.navy,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Center(
@@ -277,14 +267,7 @@ class _MemberTile extends StatelessWidget {
               width: 36,
               height: 36,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    grad[0] as Color,
-                    (grad[1] as Color).withOpacity(0.7),
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: AppColors.textPrimary,
                 shape: BoxShape.circle,
               ),
               child: Center(

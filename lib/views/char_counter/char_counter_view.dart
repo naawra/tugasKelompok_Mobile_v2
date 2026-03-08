@@ -17,7 +17,7 @@ class CharCounterView extends StatelessWidget {
         children: [
           Container(
             decoration:
-                const BoxDecoration(gradient: AppColors.appBarGradient),
+                const BoxDecoration(color: AppColors.textSub),
             child: const GradientAppBar(title: 'Hitung Karakter'),
           ),
           Expanded(
@@ -190,10 +190,7 @@ class _BreakdownCard extends StatelessWidget {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: colors,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight),
+            color: AppColors.navy,
               borderRadius: BorderRadius.circular(9),
             ),
             child: Icon(icon, color: Colors.white, size: 18),

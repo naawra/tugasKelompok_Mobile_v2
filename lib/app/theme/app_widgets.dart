@@ -14,7 +14,7 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(gradient: AppColors.appBarGradient),
+      decoration: const BoxDecoration(color: AppColors.slate),
       child: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(title),
@@ -47,7 +47,7 @@ class SectionHeader extends StatelessWidget {
             width: 3,
             height: 18,
             decoration: BoxDecoration(
-              gradient: AppColors.accentGradient,
+              color: AppColors.textPrimary,
               borderRadius: BorderRadius.circular(2),
             ),
           ),
@@ -106,7 +106,7 @@ class ResultCard extends StatelessWidget {
             width: 36,
             height: 3,
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [color, color.withOpacity(0.4)]),
+              color: AppColors.navy,
               borderRadius: BorderRadius.circular(2),
             ),
           ),
@@ -200,8 +200,7 @@ class GradientButton extends StatelessWidget {
           width: double.infinity,
           height: 52,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: isEnabled ? gradColors : [AppColors.charcoal, AppColors.charcoal]),
+            color: AppColors.charcoal,
             borderRadius: BorderRadius.circular(14),
             boxShadow: isEnabled
                 ? [

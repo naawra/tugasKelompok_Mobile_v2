@@ -17,7 +17,7 @@ class OddEvenPrimeView extends StatelessWidget {
         children: [
           Container(
             decoration:
-                const BoxDecoration(gradient: AppColors.appBarGradient),
+                const BoxDecoration(color: AppColors.navy),
             child: const GradientAppBar(title: 'Ganjil, Genap & Prima'),
           ),
           Expanded(
@@ -118,10 +118,7 @@ class _ResultTile extends StatelessWidget {
             width: 44,
             height: 44,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: colors,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight),
+            color: AppColors.deepBlue,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(icon, color: Colors.white, size: 22),

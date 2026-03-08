@@ -82,7 +82,7 @@ class HomeView extends StatelessWidget {
             backgroundColor: AppColors.navy,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                decoration: const BoxDecoration(gradient: AppColors.heroGradient),
+                decoration: const BoxDecoration(color: Colors.blueGrey),
                 child: Stack(
                   children: [
                     Positioned(
@@ -141,8 +141,8 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              title: const Text('Menu Utama'),
-              titlePadding: const EdgeInsets.only(left: 20, bottom: 14),
+              // title: const Text('Menu Utama'),
+              // titlePadding: const EdgeInsets.only(left: 20, bottom: 14),
             ),
             actions: [
               IconButton(
@@ -193,8 +193,7 @@ class HomeView extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                    colors: [Colors.redAccent, Colors.red]),
+                color: Colors.redAccent,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Text('Logout',
@@ -238,11 +237,7 @@ class _MenuListTile extends StatelessWidget {
                   width: 48,
                   height: 48,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: item.gradient,
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
+                    color: AppColors.deepBlue,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(item.icon, color: Colors.white, size: 22),

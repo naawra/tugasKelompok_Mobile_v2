@@ -19,30 +19,30 @@ class AppColors {
   static const textSub = Color(0xFF7793C0);
 
   // Gradients
-  static const LinearGradient appBarGradient = LinearGradient(
-    colors: [navy, deepBlue],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
+  // static const LinearGradient appBarGradient = LinearGradient(
+  //   colors: [navy, deepBlue],
+  //   begin: Alignment.topLeft,
+  //   end: Alignment.bottomRight,
+  // );
 
-  static const LinearGradient heroGradient = LinearGradient(
-    colors: [navy, deepBlue, blue],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    stops: [0.0, 0.55, 1.0],
-  );
+  // static const LinearGradient heroGradient = LinearGradient(
+  //   colors: [navy, deepBlue, blue],
+  //   begin: Alignment.topLeft,
+  //   end: Alignment.bottomRight,
+  //   stops: [0.0, 0.55, 1.0],
+  // );
 
-  static const LinearGradient sandGradient = LinearGradient(
-    colors: [sand, Color(0xFFD4C4AD)],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
+  // static const LinearGradient sandGradient = LinearGradient(
+  //   colors: [sand, Color(0xFFD4C4AD)],
+  //   begin: Alignment.topLeft,
+  //   end: Alignment.bottomRight,
+  // );
 
-  static const LinearGradient accentGradient = LinearGradient(
-    colors: [deepBlue, blue],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
+  // static const LinearGradient accentGradient = LinearGradient(
+  //   colors: [deepBlue, blue],
+  //   begin: Alignment.topLeft,
+  //   end: Alignment.bottomRight,
+  // );
 
   // Per-menu accent (start, end)
   static const List<List<Color>> menuColors = [

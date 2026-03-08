@@ -18,7 +18,7 @@ class ArithmeticView extends StatelessWidget {
         children: [
           // Gradient AppBar
           Container(
-            decoration: const BoxDecoration(gradient: AppColors.appBarGradient),
+            decoration: const BoxDecoration(color: AppColors.navy),
             child: const GradientAppBar(title: 'Penjumlahan & Pengurangan'),
           ),
           Expanded(

@@ -19,7 +19,7 @@ class PyramidView extends StatelessWidget {
         children: [
           Container(
             decoration:
-                const BoxDecoration(gradient: AppColors.appBarGradient),
+                const BoxDecoration(color: AppColors.navy),
             child: const GradientAppBar(title: 'Luas & Volume Piramid'),
           ),
           Expanded(
@@ -33,14 +33,7 @@ class PyramidView extends StatelessWidget {
                     width: double.infinity,
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          AppColors.navy,
-                          AppColors.deepBlue.withOpacity(0.85),
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
+                      color: AppColors.deepBlue,
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Row(
@@ -227,10 +220,7 @@ class _ResultTile extends StatelessWidget {
             width: 44,
             height: 44,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: colors,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight),
+              color: AppColors.navy,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(icon, color: Colors.white, size: 22),

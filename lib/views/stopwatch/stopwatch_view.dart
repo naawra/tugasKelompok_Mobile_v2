@@ -16,7 +16,7 @@ class StopwatchView extends StatelessWidget {
         children: [
           // ── Header with live timer ───────────────────────────
           Container(
-            decoration: const BoxDecoration(gradient: AppColors.heroGradient),
+            decoration: const BoxDecoration(color: AppColors.slate),
             child: SafeArea(
               bottom: false,
               child: Column(
@@ -320,10 +320,7 @@ class _CtrlBtn extends StatelessWidget {
               width: 52,
               height: 52,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: colors,
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight),
+                color: AppColors.navy,
                 borderRadius: BorderRadius.circular(14),
                 boxShadow: enabled
                     ? [

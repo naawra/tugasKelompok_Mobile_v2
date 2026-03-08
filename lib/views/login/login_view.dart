@@ -23,7 +23,7 @@ class LoginView extends StatelessWidget {
               width: double.infinity,
               height: size.height * 0.42,
               decoration: const BoxDecoration(
-                gradient: AppColors.heroGradient,
+                color: AppColors.charcoal,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(36),
                   bottomRight: Radius.circular(36),
@@ -62,9 +62,6 @@ class LoginView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const SizedBox(height: 40),
-                        // ── PHOTO PLACEHOLDER ──
-                        // Replace AssetImage('assets/images/photo.jpg')
-                        // with your actual photo asset.
                         Container(
                           width: 110,
                           height: 110,
@@ -82,28 +79,29 @@ class LoginView extends StatelessWidget {
                               alignment: Alignment.center,
                               children: [
                                 // Swap this with Image.asset(...) when ready
-                                Container(
-                                  color: AppColors.charcoal.withOpacity(0.35),
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.add_a_photo_outlined,
-                                      size: 32,
-                                      color: AppColors.sand.withOpacity(0.7),
-                                    ),
-                                    const SizedBox(height: 6),
-                                    Text(
-                                      'Foto Anda',
-                                      style: TextStyle(
-                                        fontSize: 11,
-                                        color: AppColors.sand.withOpacity(0.7),
-                                        letterSpacing: 0.3,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                Image.asset('assets/images/profile.jpeg'),
+                                // Container(
+                                //   color: AppColors.charcoal.withOpacity(0.35),
+                                // ),
+                                // Column(
+                                //   mainAxisAlignment: MainAxisAlignment.center,
+                                //   children: [
+                                //     Icon(
+                                //       Icons.add_a_photo_outlined,
+                                //       size: 32,
+                                //       color: AppColors.sand.withOpacity(0.7),
+                                //     ),
+                                //     const SizedBox(height: 6),
+                                //     Text(
+                                //       'Foto Anda',
+                                //       style: TextStyle(
+                                //         fontSize: 11,
+                                //         color: AppColors.sand.withOpacity(0.7),
+                                //         letterSpacing: 0.3,
+                                //       ),
+                                //     ),
+                                //   ],
+                                // ),
                               ],
                             ),
                           ),
@@ -231,10 +229,7 @@ class LoginView extends StatelessWidget {
                           width: double.infinity,
                           height: 52,
                           decoration: BoxDecoration(
-                            gradient: disabled
-                                ? null
-                                : AppColors.accentGradient,
-                            color: disabled ? AppColors.charcoal : null,
+                            color:  AppColors.sand,
                             borderRadius: BorderRadius.circular(14),
                             boxShadow: disabled
                                 ? []
