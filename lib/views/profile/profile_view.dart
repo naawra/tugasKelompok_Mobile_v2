@@ -1,0 +1,308 @@
+import 'package:flutter/material.dart';
+import '../../models/group_member_model.dart';
+import '../../app/theme/app_theme.dart';
+import '../../app/theme/app_widgets.dart';
+
+class ProfileView extends StatelessWidget {
+  const ProfileView({super.key});
+
+  // ============================================================
+  // ✏️  EDIT DATA KELOMPOK DI SINI
+  // ============================================================
+  static const String namaKelompok  = 'Kelompok X';
+  static const String mataKuliah    = 'Pemrograman Mobile';
+  static const String semester      = 'Semester 4';
+  static const String tahunAjaran   = '2024 / 2025';
+
+  static final List<GroupMember> members = [
+    GroupMember(nama: 'Nama Anggota 1', nim: '123456001'),
+    GroupMember(nama: 'Nama Anggota 2', nim: '123456002'),
+    GroupMember(nama: 'Nama Anggota 3', nim: '123456003'),
+    GroupMember(nama: 'Nama Anggota 4', nim: '123456004'),
+  ];
+  // ============================================================
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      body: CustomScrollView(
+        slivers: [
+          // ── Gradient SliverAppBar ──────────────────────────
+          SliverAppBar(
+            expandedHeight: 200,
+            pinned: true,
+            backgroundColor: AppColors.navy,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios_new,
+                  size: 18, color: Colors.white),
+              onPressed: () => Navigator.pop(context),
+            ),
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                decoration: const BoxDecoration(gradient: AppColors.heroGradient),
+                child: Stack(
+                  children: [
+                    // Deco circles
+                    Positioned(
+                      top: -15,
+                      right: -15,
+                      child: Container(
+                        width: 120,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.sand.withOpacity(0.1),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -20,
+                      left: -20,
+                      child: Container(
+                        width: 90,
+                        height: 90,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.blue.withOpacity(0.12),
+                        ),
+                      ),
+                    ),
+                    // Content
+                    SafeArea(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(24, 8, 24, 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Avatar row
+                            Row(
+                              children: [
+                                Container(
+                                  width: 56,
+                                  height: 56,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.sand.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(14),
+                                    border: Border.all(
+                                        color: AppColors.sand.withOpacity(0.4),
+                                        width: 1.5),
+                                  ),
+                                  child: const Icon(Icons.group_outlined,
+                                      color: Colors.white, size: 28),
+                                ),
+                                const SizedBox(width: 14),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      namaKelompok,
+                                      style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w800,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      mataKuliah,
+                                      style: TextStyle(
+                                        fontSize: 12.5,
+                                        color: Colors.white.withOpacity(0.65),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 14),
+                            // Chips row
+                            Row(
+                              children: [
+                                _Chip(label: semester),
+                                const SizedBox(width: 8),
+                                _Chip(label: tahunAjaran),
+                                const SizedBox(width: 8),
+                                _Chip(label: '${members.length} Anggota'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              title: const Text('Profile Kelompok'),
+              titlePadding: const EdgeInsets.only(left: 56, bottom: 14),
+            ),
+          ),
+
+          // ── Members list ───────────────────────────────────
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 30),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  if (index == 0) {
+                    return const Padding(
+                      padding: EdgeInsets.only(bottom: 14),
+                      child: SectionHeader(
+                          title: 'Daftar Anggota', icon: Icons.people_outline),
+                    );
+                  }
+                  final member = members[index - 1];
+                  return _MemberTile(number: index, member: member);
+                },
+                childCount: members.length + 1,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Chip extends StatelessWidget {
+  final String label;
+  const _Chip({required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.12),
+        borderRadius: BorderRadius.circular(20),
+        border:
+            Border.all(color: Colors.white.withOpacity(0.2)),
+      ),
+      child: Text(
+        label,
+        style: const TextStyle(
+            color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+}
+
+class _MemberTile extends StatelessWidget {
+  final int number;
+  final GroupMember member;
+
+  const _MemberTile({required this.number, required this.member});
+
+  // Cycle through gradient pairs per member
+  static const _gradients = [
+    [AppColors.navy, AppColors.charcoal],
+    [AppColors.deepBlue, AppColors.blue],
+    [AppColors.blue, AppColors.slate],
+    [AppColors.charcoal, AppColors.navy],
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final grad = _gradients[(number - 1) % _gradients.length];
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        decoration: BoxDecoration(
+          color: AppColors.surface,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppColors.divider),
+        ),
+        child: Row(
+          children: [
+            // Gradient number badge
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: grad.cast<Color>(),
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Text(
+                  '$number',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 17,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 14),
+
+            // Info
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    member.nama,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14.5,
+                      color: AppColors.textPrimary,
+                    ),
+                  ),
+                  const SizedBox(height: 3),
+                  Row(
+                    children: [
+                      const Icon(Icons.badge_outlined,
+                          size: 13, color: AppColors.textSub),
+                      const SizedBox(width: 4),
+                      Text(
+                        'NIM: ${member.nim}',
+                        style: const TextStyle(
+                            fontSize: 12.5, color: AppColors.textSub),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            // Initial avatar
+            Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    grad[0] as Color,
+                    (grad[1] as Color).withOpacity(0.7),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  member.nama.isNotEmpty
+                      ? member.nama[0].toUpperCase()
+                      : '?',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
