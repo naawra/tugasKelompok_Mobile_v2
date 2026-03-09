@@ -28,7 +28,6 @@ class PyramidView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Pyramid diagram card
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(20),

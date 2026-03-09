@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AppColors {
-  // Core palette
   static const sand = Color(0xFFC1AD92);
   static const navy = Color(0xFF1F2640);
   static const blue = Color(0xFF2275DD);
@@ -10,7 +9,6 @@ class AppColors {
   static const charcoal = Color(0xFF444355);
   static const slate = Color(0xFF7793C0);
 
-  // Derived
   static const background = Color(0xFFF5F0EA);
   static const surface = Color(0xFFFFFFFF);
   static const surfaceWarm = Color(0xFFFAF6F1);
@@ -18,33 +16,6 @@ class AppColors {
   static const textPrimary = Color(0xFF1F2640);
   static const textSub = Color(0xFF7793C0);
 
-  // Gradients
-  // static const LinearGradient appBarGradient = LinearGradient(
-  //   colors: [navy, deepBlue],
-  //   begin: Alignment.topLeft,
-  //   end: Alignment.bottomRight,
-  // );
-
-  // static const LinearGradient heroGradient = LinearGradient(
-  //   colors: [navy, deepBlue, blue],
-  //   begin: Alignment.topLeft,
-  //   end: Alignment.bottomRight,
-  //   stops: [0.0, 0.55, 1.0],
-  // );
-
-  // static const LinearGradient sandGradient = LinearGradient(
-  //   colors: [sand, Color(0xFFD4C4AD)],
-  //   begin: Alignment.topLeft,
-  //   end: Alignment.bottomRight,
-  // );
-
-  // static const LinearGradient accentGradient = LinearGradient(
-  //   colors: [deepBlue, blue],
-  //   begin: Alignment.topLeft,
-  //   end: Alignment.bottomRight,
-  // );
-
-  // Per-menu accent (start, end)
   static const List<List<Color>> menuColors = [
     [navy, charcoal],
     [deepBlue, blue],

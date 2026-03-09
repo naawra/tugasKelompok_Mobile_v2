@@ -87,7 +87,6 @@ class StopwatchController extends GetxController {
   }
 
   String formatDuration(Duration d) {
-    // Cap at 99:59:59.99
     final capped = d.inHours > 99
         ? const Duration(hours: 99, minutes: 59, seconds: 59, milliseconds: 990)
         : d;

@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import '../app/utils/input_sanitizer.dart';
 
-// Top-level function for compute() isolate
 Map<String, int> _countCharsIsolate(String input) {
   int letters = 0, digits = 0, symbols = 0;
   for (int i = 0; i < input.length; i++) {
@@ -47,7 +46,6 @@ class CharCounterController extends GetxController {
 
     String input = rawInput;
 
-    // Truncate if too long
     if (input.length > _maxLength) {
       input = InputSanitizer.truncate(input, maxLength: _maxLength);
       wasTruncated.value = true;
@@ -56,7 +54,6 @@ class CharCounterController extends GetxController {
     isLoading.value = true;
 
     try {
-      // Use compute() for large input to avoid UI freeze
       final result = input.length > 5000
           ? await compute(_countCharsIsolate, input)
           : _countCharsIsolate(input);

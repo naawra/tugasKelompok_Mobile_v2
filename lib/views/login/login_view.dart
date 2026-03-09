@@ -30,7 +30,6 @@ class LoginView extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                  // Photo placeholder + greeting
                   Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -83,13 +82,12 @@ class LoginView extends StatelessWidget {
               ),
             ),
 
-            // ── Form section ────────────────────────────────────
+            // Form section
             Padding(
               padding: const EdgeInsets.fromLTRB(28, 32, 28, 28),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Label
                   const Text(
                     'LOGIN',
                     style: TextStyle(
@@ -149,7 +147,7 @@ class LoginView extends StatelessWidget {
                       )),
                   const SizedBox(height: 10),
 
-                  // Lockout / General error
+                  // Lockout
                   Obx(() {
                     if (controller.isLocked.value) {
                       return _LockoutBanner(

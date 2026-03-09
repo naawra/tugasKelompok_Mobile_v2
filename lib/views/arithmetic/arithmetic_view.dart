@@ -16,7 +16,6 @@ class ArithmeticView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // Gradient AppBar
           Container(
             decoration: const BoxDecoration(color: AppColors.navy),
             child: const GradientAppBar(title: 'Penjumlahan & Pengurangan'),

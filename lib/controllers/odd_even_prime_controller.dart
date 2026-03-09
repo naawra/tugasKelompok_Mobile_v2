@@ -49,15 +49,15 @@ class OddEvenPrimeController extends GetxController {
     // Ganjil / Genap
     if (number < 0) {
       oddEvenResult.value = number.abs() % 2 == 0
-          ? '$number adalah Bilangan Genap (negatif)'
-          : '$number adalah Bilangan Ganjil (negatif)';
+        ? '$number adalah Bilangan Genap (negatif)'
+        : '$number adalah Bilangan Ganjil (negatif)';
       primeResult.value = 'Angka negatif bukan bilangan prima';
     } else {
       oddEvenResult.value =
-          number % 2 == 0 ? '$number adalah Bilangan Genap' : '$number adalah Bilangan Ganjil';
+        number % 2 == 0 ? '$number adalah Bilangan Genap' : '$number adalah Bilangan Ganjil';
       primeResult.value = _checkPrime(number)
-          ? '$number adalah Bilangan Prima'
-          : '$number bukan Bilangan Prima';
+        ? '$number adalah Bilangan Prima'
+        : '$number bukan Bilangan Prima';
     }
 
     hasResult.value = true;

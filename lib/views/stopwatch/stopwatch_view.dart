@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/stopwatch_controller.dart';
 import '../../app/theme/app_theme.dart';
-import '../../app/theme/app_widgets.dart';
 
 class StopwatchView extends StatelessWidget {
   const StopwatchView({super.key});
@@ -14,14 +13,12 @@ class StopwatchView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // ── Header with live timer ───────────────────────────
           Container(
             decoration: const BoxDecoration(color: AppColors.slate),
             child: SafeArea(
               bottom: false,
               child: Column(
                 children: [
-                  // AppBar row
                   Row(
                     children: [
                       IconButton(
@@ -42,7 +39,6 @@ class StopwatchView extends StatelessWidget {
                       const SizedBox(width: 48),
                     ],
                   ),
-                  // Timer display
                   Padding(
                     padding: const EdgeInsets.fromLTRB(24, 16, 24, 30),
                     child: Column(
@@ -66,7 +62,6 @@ class StopwatchView extends StatelessWidget {
             ),
           ),
 
-          // ── Controls ─────────────────────────────────────────
           Container(
             color: AppColors.surface,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 28),
@@ -112,7 +107,6 @@ class StopwatchView extends StatelessWidget {
           ),
           const Divider(height: 1, color: AppColors.divider),
 
-          // ── Lap limit warning ─────────────────────────────────
           Obx(() => controller.lapLimitReached.value
               ? Container(
                   color: Colors.amber.shade50,
@@ -131,7 +125,6 @@ class StopwatchView extends StatelessWidget {
                 )
               : const SizedBox.shrink()),
 
-          // ── Lap list ─────────────────────────────────────────
           Obx(() {
             if (controller.laps.isEmpty) {
               return Expanded(

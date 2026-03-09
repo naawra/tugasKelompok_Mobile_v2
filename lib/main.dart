@@ -16,7 +16,6 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  // Transparent status bar so gradient bleeds into it
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.light,

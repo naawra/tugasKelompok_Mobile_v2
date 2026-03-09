@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'app_theme.dart';
 
-// ─── Gradient AppBar ─────────────────────────────────────────
 class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
@@ -30,7 +29,6 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-// ─── Section Header ───────────────────────────────────────────
 class SectionHeader extends StatelessWidget {
   final String title;
   final IconData icon;
@@ -69,7 +67,6 @@ class SectionHeader extends StatelessWidget {
   }
 }
 
-// ─── Result Card ──────────────────────────────────────────────
 class ResultCard extends StatelessWidget {
   final String label;
   final String value;
@@ -136,7 +133,6 @@ class ResultCard extends StatelessWidget {
   }
 }
 
-// ─── Info Banner ──────────────────────────────────────────────
 class InfoBanner extends StatelessWidget {
   final String text;
 
@@ -171,7 +167,6 @@ class InfoBanner extends StatelessWidget {
   }
 }
 
-// ─── Gradient Button ─────────────────────────────────────────
 class GradientButton extends StatelessWidget {
   final String label;
   final IconData icon;

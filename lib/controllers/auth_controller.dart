@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:get/get.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
 import '../app/utils/input_sanitizer.dart';
 import '../app/routes/app_routes.dart';
 
@@ -13,14 +12,12 @@ class AuthController extends GetxController {
 
   final _storage = const FlutterSecureStorage();
 
-  // Observables
   final isLoading = false.obs;
   final isLocked = false.obs;
   final lockoutCountdown = 0.obs;
   final failedAttempts = 0.obs;
   final passwordVisible = false.obs;
 
-  // Error messages
   final usernameError = ''.obs;
   final passwordError = ''.obs;
   final generalError = ''.obs;
@@ -35,20 +32,16 @@ class AuthController extends GetxController {
 
   void togglePasswordVisibility() => passwordVisible.toggle();
 
-  /// Validate and attempt login
   Future<void> login(String rawUsername, String rawPassword) async {
-    // Clear previous errors
     usernameError.value = '';
     passwordError.value = '';
     generalError.value = '';
 
     if (isLocked.value) return;
 
-    // Trim username
     final username = InputSanitizer.trimUsername(rawUsername);
     final password = rawPassword;
 
-    // --- Validations ---
     bool hasError = false;
 
     if (username.isEmpty) {
@@ -68,7 +61,6 @@ class AuthController extends GetxController {
 
     isLoading.value = true;
 
-    // Simulate slight delay for UX
     await Future.delayed(const Duration(milliseconds: 300));
 
     if (username == _correctUsername && password == _correctPassword) {

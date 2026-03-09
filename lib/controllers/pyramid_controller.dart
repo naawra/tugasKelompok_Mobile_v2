@@ -33,25 +33,16 @@ class PyramidController extends GetxController {
     final b = double.tryParse(InputSanitizer.sanitizeNumber(rawB))!;
     final t = double.tryParse(InputSanitizer.sanitizeNumber(rawT))!;
 
-    // Extra: check too large
     if (a > 1e15 || b > 1e15 || t > 1e15) {
       errorA.value = 'Nilai terlalu besar untuk dihitung';
       return;
     }
 
     try {
-      // Luas Alas = a × b
       final la = a * b;
-
-      // Slant height untuk sisi a (tinggi miring sisi dengan lebar b)
       final slantA = sqrt(pow(a / 2, 2) + pow(t, 2));
-      // Slant height untuk sisi b (tinggi miring sisi dengan lebar a)
       final slantB = sqrt(pow(b / 2, 2) + pow(t, 2));
-
-      // Luas Permukaan = luas alas + 2 sisi a + 2 sisi b
       final lp = la + (b * slantA) + (a * slantB);
-
-      // Volume = (1/3) × a × b × t
       final v = (1 / 3) * a * b * t;
 
       if (!InputSanitizer.isValidResult(la) ||

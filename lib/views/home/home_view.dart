@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
 import '../../app/routes/app_routes.dart';
 import '../../app/theme/app_theme.dart';
-import '../../app/theme/app_widgets.dart';
 
 class _MenuItem {
   final String title;
@@ -75,7 +74,6 @@ class HomeView extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: CustomScrollView(
         slivers: [
-          // ── SliverAppBar with gradient ─────────────────────
           SliverAppBar(
             expandedHeight: 130,
             pinned: true,
@@ -127,7 +125,6 @@ class HomeView extends StatelessWidget {
             ],
           ),
 
-          // ── Menu list ──────────────────────────────────────
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 30),
             sliver: SliverList(
@@ -206,7 +203,6 @@ class _MenuListTile extends StatelessWidget {
             ),
             child: Row(
               children: [
-                // ── Icon box with gradient ──
                 Container(
                   width: 48,
                   height: 48,
@@ -218,7 +214,6 @@ class _MenuListTile extends StatelessWidget {
                 ),
                 const SizedBox(width: 14),
 
-                // ── Text ──
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -243,7 +238,6 @@ class _MenuListTile extends StatelessWidget {
                   ),
                 ),
 
-                // ── Chevron ──
                 Container(
                   width: 28,
                   height: 28,
