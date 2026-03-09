@@ -7,7 +7,7 @@ class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
   static const String namaKelompok  = 'Kelompok AAD3A';
-  static const String mataKuliah    = 'Pemrograman Mobile';
+  static const String mataKuliah    = 'Teknologi dan Pemrograman Mobile';
   static const String semester      = 'Semester 6';
   static const String tahunAjaran   = '2025 / 2026';
 
@@ -24,7 +24,6 @@ class ProfileView extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: CustomScrollView(
         slivers: [
-          // ── Gradient SliverAppBar ──────────────────────────
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -39,32 +38,6 @@ class ProfileView extends StatelessWidget {
                 decoration: const BoxDecoration(color: AppColors.divider),
                 child: Stack(
                   children: [
-                    // Deco circles
-                    Positioned(
-                      top: -15,
-                      right: -15,
-                      child: Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.navy.withOpacity(0.1),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: -20,
-                      left: -20,
-                      child: Container(
-                        width: 90,
-                        height: 90,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.blue.withOpacity(0.12),
-                        ),
-                      ),
-                    ),
-                    // Content
                     SafeArea(
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(24, 8, 24, 20),
@@ -72,7 +45,6 @@ class ProfileView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Avatar row
                             Row(
                               children: [
                                 Container(
@@ -86,7 +58,7 @@ class ProfileView extends StatelessWidget {
                                         width: 1.5),
                                   ),
                                   child: const Icon(Icons.group_outlined,
-                                      color: Colors.white, size: 28),
+                                      color: AppColors.navy, size: 28),
                                 ),
                                 const SizedBox(width: 14),
                                 Column(
@@ -97,7 +69,7 @@ class ProfileView extends StatelessWidget {
                                       style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w800,
-                                        color: Colors.white,
+                                        color: AppColors.textPrimary,
                                       ),
                                     ),
                                     const SizedBox(height: 2),
@@ -105,7 +77,7 @@ class ProfileView extends StatelessWidget {
                                       mataKuliah,
                                       style: TextStyle(
                                         fontSize: 12.5,
-                                        color: Colors.white.withOpacity(0.65),
+                                        color: AppColors.textPrimary,
                                       ),
                                     ),
                                   ],
@@ -113,7 +85,7 @@ class ProfileView extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 14),
-                            // Chips row
+
                             Row(
                               children: [
                                 _Chip(label: semester),
@@ -133,7 +105,6 @@ class ProfileView extends StatelessWidget {
             ),
           ),
 
-          // ── Members list ───────────────────────────────────
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 30),
             sliver: SliverList(
@@ -171,12 +142,12 @@ class _Chip extends StatelessWidget {
         color: Colors.white.withOpacity(0.12),
         borderRadius: BorderRadius.circular(20),
         border:
-            Border.all(color: Colors.white.withOpacity(0.2)),
+            Border.all(color: AppColors.textPrimary.withOpacity(0.2)),
       ),
       child: Text(
         label,
         style: const TextStyle(
-            color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600),
+            color: AppColors.textPrimary, fontSize: 11, fontWeight: FontWeight.w600),
       ),
     );
   }
@@ -188,18 +159,8 @@ class _MemberTile extends StatelessWidget {
 
   const _MemberTile({required this.number, required this.member});
 
-  // Cycle through gradient pairs per member
-  // static const _gradients = [
-  //   [AppColors.navy, AppColors.charcoal],
-  //   [AppColors.deepBlue, AppColors.blue],
-  //   [AppColors.blue, AppColors.slate],
-  //   [AppColors.charcoal, AppColors.navy],
-  // ];
-
   @override
   Widget build(BuildContext context) {
-    // final grad = _gradients[(number - 1) % _gradients.length];
-
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Container(
@@ -211,7 +172,6 @@ class _MemberTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Gradient number badge
             Container(
               width: 44,
               height: 44,
@@ -232,7 +192,6 @@ class _MemberTile extends StatelessWidget {
             ),
             const SizedBox(width: 14),
 
-            // Info
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -262,7 +221,6 @@ class _MemberTile extends StatelessWidget {
               ),
             ),
 
-            // Initial avatar
             Container(
               width: 36,
               height: 36,
