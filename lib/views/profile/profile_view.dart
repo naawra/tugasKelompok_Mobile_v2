@@ -30,7 +30,7 @@ class ProfileView extends StatelessWidget {
             backgroundColor: AppColors.navy,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_ios_new,
-                  size: 18, color: Colors.white),
+                  size: 18, color: AppColors.navy),
               onPressed: () => Navigator.pop(context),
             ),
             flexibleSpace: FlexibleSpaceBar(
