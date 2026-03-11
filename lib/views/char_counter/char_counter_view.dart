@@ -16,8 +16,7 @@ class CharCounterView extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            decoration:
-                const BoxDecoration(color: AppColors.textSub),
+            decoration: const BoxDecoration(color: AppColors.textSub),
             child: const GradientAppBar(title: 'Hitung Karakter'),
           ),
           Expanded(
@@ -28,12 +27,11 @@ class CharCounterView extends StatelessWidget {
                 children: [
                   const SectionHeader(
                       title: 'Input Teks', icon: Icons.text_fields_rounded),
-                  const InfoBanner(
+                  InfoBanner(
                     text:
-                        'Tempel teks apapun — termasuk artikel panjang. Program memproses hingga 50.000 karakter tanpa crash.',
+                        'Tempel teks apapun — termasuk artikel panjang. Program memproses hingga ${controller.maxLength} karakter tanpa crash.',
                   ),
                   const SizedBox(height: 18),
-
                   Obx(() => TextField(
                         controller: inputCtrl,
                         maxLines: 6,
@@ -52,7 +50,6 @@ class CharCounterView extends StatelessWidget {
                         onChanged: (_) => controller.inputError.value = '',
                       )),
                   const SizedBox(height: 8),
-
                   Obx(() => controller.wasTruncated.value
                       ? Container(
                           margin: const EdgeInsets.only(top: 6),
@@ -62,14 +59,14 @@ class CharCounterView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(9),
                             border: Border.all(color: Colors.amber.shade300),
                           ),
-                          child: const Row(
+                          child: Row(
                             children: [
                               Icon(Icons.warning_amber_rounded,
                                   color: Colors.amber, size: 15),
                               SizedBox(width: 7),
                               Expanded(
                                 child: Text(
-                                  'Input terlalu panjang, diproses 50.000 karakter pertama',
+                                  'Input terlalu panjang, diproses ${controller.maxLength} karakter pertama',
                                   style: TextStyle(
                                       fontSize: 12, color: Colors.amber),
                                 ),
@@ -78,9 +75,7 @@ class CharCounterView extends StatelessWidget {
                           ),
                         )
                       : const SizedBox.shrink()),
-
                   const SizedBox(height: 16),
-
                   Obx(() => GradientButton(
                         label: controller.isLoading.value
                             ? 'MENGHITUNG...'
@@ -93,9 +88,7 @@ class CharCounterView extends StatelessWidget {
                             ? null
                             : () => controller.count(inputCtrl.text),
                       )),
-
                   const SizedBox(height: 26),
-
                   Obx(() {
                     if (controller.isLoading.value) {
                       return const Center(
@@ -106,7 +99,8 @@ class CharCounterView extends StatelessWidget {
                         ),
                       );
                     }
-                    if (!controller.hasResult.value) return const SizedBox.shrink();
+                    if (!controller.hasResult.value)
+                      return const SizedBox.shrink();
 
                     return Column(
                       children: [
@@ -126,7 +120,10 @@ class CharCounterView extends StatelessWidget {
                                 icon: Icons.abc_rounded,
                                 label: 'Huruf',
                                 count: controller.letters.value,
-                                colors: const [AppColors.deepBlue, AppColors.blue],
+                                colors: const [
+                                  AppColors.deepBlue,
+                                  AppColors.blue
+                                ],
                               ),
                             ),
                             const SizedBox(width: 10),
@@ -135,7 +132,10 @@ class CharCounterView extends StatelessWidget {
                                 icon: Icons.tag_rounded,
                                 label: 'Angka',
                                 count: controller.digits.value,
-                                colors: const [AppColors.charcoal, AppColors.navy],
+                                colors: const [
+                                  AppColors.charcoal,
+                                  AppColors.navy
+                                ],
                               ),
                             ),
                             const SizedBox(width: 10),
@@ -144,7 +144,10 @@ class CharCounterView extends StatelessWidget {
                                 icon: Icons.emoji_symbols_rounded,
                                 label: 'Simbol',
                                 count: controller.symbols.value,
-                                colors: const [AppColors.slate, AppColors.deepBlue],
+                                colors: const [
+                                  AppColors.slate,
+                                  AppColors.deepBlue
+                                ],
                               ),
                             ),
                           ],
@@ -190,7 +193,7 @@ class _BreakdownCard extends StatelessWidget {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-            color: AppColors.navy,
+              color: AppColors.navy,
               borderRadius: BorderRadius.circular(9),
             ),
             child: Icon(icon, color: Colors.white, size: 18),
@@ -206,8 +209,7 @@ class _BreakdownCard extends StatelessWidget {
           ),
           const SizedBox(height: 2),
           Text(label,
-              style: const TextStyle(
-                  fontSize: 11, color: AppColors.textSub)),
+              style: const TextStyle(fontSize: 11, color: AppColors.textSub)),
         ],
       ),
     );

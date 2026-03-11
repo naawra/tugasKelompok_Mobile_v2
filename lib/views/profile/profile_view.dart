@@ -61,7 +61,7 @@ class ProfileView extends StatelessWidget {
                                       color: AppColors.navy, size: 28),
                                 ),
                                 const SizedBox(width: 14),
-                                Column(
+                                const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
@@ -88,9 +88,9 @@ class ProfileView extends StatelessWidget {
 
                             Row(
                               children: [
-                                _Chip(label: semester),
+                                const _Chip(label: semester),
                                 const SizedBox(width: 8),
-                                _Chip(label: tahunAjaran),
+                                const _Chip(label: tahunAjaran),
                                 const SizedBox(width: 8),
                                 _Chip(label: '${members.length} Anggota'),
                               ],

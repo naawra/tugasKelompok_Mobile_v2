@@ -44,7 +44,8 @@ class StopwatchView extends StatelessWidget {
                     child: Column(
                       children: [
                         Obx(() => Text(
-                              controller.formatDuration(controller.elapsed.value),
+                              controller
+                                  .formatDuration(controller.elapsed.value),
                               style: const TextStyle(
                                 fontSize: 54,
                                 fontWeight: FontWeight.w200,
@@ -61,7 +62,6 @@ class StopwatchView extends StatelessWidget {
               ),
             ),
           ),
-
           Container(
             color: AppColors.surface,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 28),
@@ -106,12 +106,11 @@ class StopwatchView extends StatelessWidget {
                 )),
           ),
           const Divider(height: 1, color: AppColors.divider),
-
           Obx(() => controller.lapLimitReached.value
               ? Container(
                   color: Colors.amber.shade50,
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: const Row(
                     children: [
                       Icon(Icons.warning_amber_rounded,
@@ -124,7 +123,6 @@ class StopwatchView extends StatelessWidget {
                   ),
                 )
               : const SizedBox.shrink()),
-
           Obx(() {
             if (controller.laps.isEmpty) {
               return Expanded(
@@ -144,11 +142,11 @@ class StopwatchView extends StatelessWidget {
                   // Header
                   Container(
                     color: AppColors.surfaceWarm,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 8),
-                    child: Row(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    child: const Row(
                       children: [
-                        const Expanded(
+                        Expanded(
                           child: Text('Lap',
                               style: TextStyle(
                                   fontSize: 11,
@@ -189,9 +187,9 @@ class StopwatchView extends StatelessWidget {
                               horizontal: 20, vertical: 11),
                           decoration: BoxDecoration(
                             color: isLatest
-                                ? AppColors.deepBlue.withOpacity(0.04)
+                                ? AppColors.deepBlue.withValues(alpha: 0.04)
                                 : null,
-                            border: Border(
+                            border: const Border(
                               bottom: BorderSide(
                                   color: AppColors.divider, width: 0.8),
                             ),
@@ -240,8 +238,7 @@ class StopwatchView extends StatelessWidget {
                                   controller.formatDuration(lap.totalTime),
                                   textAlign: TextAlign.right,
                                   style: const TextStyle(
-                                      fontSize: 12.5,
-                                      color: AppColors.textSub),
+                                      fontSize: 12.5, color: AppColors.textSub),
                                 ),
                               ),
                             ],
@@ -267,9 +264,9 @@ class _StatusPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final label = switch (state) {
-      StopwatchState.idle    => 'Siap',
+      StopwatchState.idle => 'Siap',
       StopwatchState.running => 'Berjalan',
-      StopwatchState.paused  => 'Dijeda',
+      StopwatchState.paused => 'Dijeda',
     };
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),

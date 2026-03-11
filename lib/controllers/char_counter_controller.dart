@@ -23,7 +23,7 @@ Map<String, int> _countCharsIsolate(String input) {
 }
 
 class CharCounterController extends GetxController {
-  static const int _maxLength = 50000;
+  static const int _maxLength = 3000;
 
   final inputError = ''.obs;
   final letters = 0.obs;
@@ -33,6 +33,8 @@ class CharCounterController extends GetxController {
   final hasResult = false.obs;
   final isLoading = false.obs;
   final wasTruncated = false.obs;
+
+  int get maxLength => _maxLength;
 
   Future<void> count(String rawInput) async {
     inputError.value = '';
